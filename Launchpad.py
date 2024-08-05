@@ -18,7 +18,7 @@ containerLaunchpad = st.container()
 with containerLaunchpad:
     st.title("🚀 Launchpad")
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4 = st.columns(4)
 
     def update_history(button_text, command_text, is_rerun=False):
         if is_rerun:
@@ -63,6 +63,13 @@ with containerLaunchpad:
                         time.sleep(2)
                     st.error("🔴 Executed")
                     run_seleniumbase_fail()
+
+    with col4:
+        containerStreamlit = st.container(border=True)
+        with containerStreamlit:
+            st.subheader("👑 Streamlit")
+            st.button("Functionality coming soon", use_container_width=True, disabled=True, key="streamlit_tba")
+
 
 containerCommand = st.container(border=True)
 with containerCommand:
