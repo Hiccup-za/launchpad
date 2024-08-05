@@ -37,15 +37,21 @@ with containerLaunchpad:
         containerCypress = st.container(border=True)
         with containerCypress:
             st.subheader("🌴 Cypress")
-            st.button("Functionality coming soon", use_container_width=True, disabled=True, key="cypress_tba")
+            st.button("Coming soon", use_container_width=True, disabled=True, key="cypress_tba")
 
     with col2:
         containerPlaywright = st.container(border=True)
         with containerPlaywright:
             st.subheader("🎭 Playwright")
-            st.button("Functionality coming soon", use_container_width=True, disabled=True, key="playwright_tba")
+            st.button("Coming soon", use_container_width=True, disabled=True, key="playwright_tba")
 
     with col3:
+        containerSelenium = st.container(border=True)
+        with containerSelenium:
+            st.subheader("🧪 Selenium")
+            st.button("Coming soon", use_container_width=True, disabled=True, key="selenium_tba")
+
+    with col4:
         containerSeleniumBase = st.container(border=True)
         with containerSeleniumBase:
             st.subheader("🐉 SeleniumBase")
@@ -53,23 +59,16 @@ with containerLaunchpad:
             col1Cypress, col2Cypress = st.columns(2)
             with col1Cypress:
                 if st.button("Run Pass", use_container_width=True, key="seleniumbase_pass"):
-                    with st.spinner('Executing test ...'):
+                    with st.spinner('Executing ...'):
                         time.sleep(2)
                     st.success("🟢 Executed")
                     run_seleniumbase_pass()
             with col2Cypress:
                 if st.button("Run Fail", type="primary", use_container_width=True, key="seleniumbase_fail"):
-                    with st.spinner('Executing test ...'):
+                    with st.spinner('Executing ...'):
                         time.sleep(2)
                     st.error("🔴 Executed")
                     run_seleniumbase_fail()
-
-    with col4:
-        containerStreamlit = st.container(border=True)
-        with containerStreamlit:
-            st.subheader("👑 Streamlit")
-            st.button("Functionality coming soon", use_container_width=True, disabled=True, key="streamlit_tba")
-
 
 containerCommand = st.container(border=True)
 with containerCommand:
@@ -80,7 +79,7 @@ containerHistory = st.container(border=True)
 with containerHistory:
     st.subheader("🧠 History")
 
-    if st.button("Clear"):
+    if st.button("Clear", type="primary"):
         st.session_state.history = []
 
     col1History, col2History, col4History = st.columns([1, 2, 1])
@@ -107,6 +106,4 @@ with containerHistory:
         st.session_state.rerun_index = None
         st.rerun()
 
-containerFooter = st.container()
-with containerFooter:
-    st.markdown("© 2024 Christopher Zeuch. All rights reserved.")
+st.sidebar.markdown("© 2024 Christopher Zeuch. All rights reserved.")

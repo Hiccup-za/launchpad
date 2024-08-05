@@ -200,3 +200,5 @@ with containerData:
             col3.metric("Humidity", "86%", "4%")
         else:
             st.empty()
+
+st.sidebar.markdown("© 2024 Christopher Zeuch. All rights reserved.")
